@@ -9,7 +9,108 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Pioner Bank investment</h1>
+    <div class="container px-md-5">
+        <div id="login-area" class="py-5 px-5 border mt-5">
+            <h1 class="text-center py-2">Welcome to Pioneer Bank</h1>
+            <div class="submit-area py-5 px-5 mt-5">
+                <h3>Login</h3>
+                <input class="form-control mb-3 mt-3" placeholder="Email" type="text" name="" id="">
+                <input class="form-control mb-3" placeholder="Password" type="password" name="" id="">
+                <button class="btn btn-success" id="login-btn">Enter</button>
+            </div>
     
+        </div>
+    </div>
+    <div class="container">
+        <div id="transaction-area" class="border my-2 p-4">
+            <h1 class="text-center py-2">Your Transaction</h1>
+            <div class="row py-5">
+                <div class="col-md-4">
+                    <div class="single-item1 p-5 text-white">
+                        <h5>Deposit</h5>
+                        <h2 class="fs-1">$ <span id="current-deposit">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-item2 p-5 text-white">
+                        <h5>Withdraw</h5>
+                        <h2 class="fs-1">$00</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-item3 p-5 text-white">
+                        <h5>Balance</h5>
+                        <h2 class="fs-1">$ <span id="current-balance">1240</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 py-2">
+                    <div class="submit-item p-5 border">
+                        <h3>Deposit</h3>
+                        <input id="deposit-amount" class="form-control mb-3" type="text" placeholder="$ Amount you want to deposit">
+                        <button id="deposit-btn" class="btn btn-success">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-md-6 py-2">
+                    <div class="submit-item p-5 border">
+                        <h3>Withdraw</h3>
+                        <input class="form-control mb-3" type="text" placeholder="$ Amount you want to withdraw">
+                        <button class="btn btn-success">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script>
+
+    // login button event handler
+
+        const loginBtn = document.getElementById('login-btn');
+        loginBtn.addEventListener('click', function(){
+            const loginArea = document.getElementById('login-area');
+            loginArea.style.display = 'none';
+            const transactionArea = document.getElementById('transaction-area');
+            transactionArea.style.display = 'block';
+        })
+
+    // deposit button event handler
+    
+        const depositBtn = document.getElementById('deposit-btn');
+        depositBtn.addEventListener('click', function(){
+            const depositAmunt = document.getElementById('deposit-amount').value;
+            const depositNumber = parseFloat(depositAmunt);
+            
+
+            const currentDeposit = document.getElementById('current-deposit').innerText;
+            const currentDepositNumber = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNumber;
+            
+            document.getElementById('current-deposit').innerText = totalDeposit;
+
+
+
+            const currentBalance = document.getElementById('current-balance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = depositNumber + currentBalanceNumber;
+
+            document.getElementById('current-balance').innerText = totalBalance;
+
+
+            document.getElementById('deposit-amount').value = '';
+
+
+        });
+        
+</script>
+        
+
+
+        
+
 </body>
 </html>

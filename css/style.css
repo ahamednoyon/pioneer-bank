@@ -1,0 +1,29 @@
+.submit-area{
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+}
+
+#transaction-area{
+    display: none;
+}
+
+
+.single-item1{
+    background: #5E4FC7;
+}
+.single-item2{
+    background: #F09670;
+}
+.single-item3{
+    background: #EF9B01;
+}
+
+.single-item1, .single-item2, .single-item3{
+    border-radius: 10px;
+    margin: 0px 15px;
+}
+
+.submit-item{
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px lightgray;
+}
