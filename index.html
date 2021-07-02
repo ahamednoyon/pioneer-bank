@@ -26,19 +26,19 @@
             <h1 class="text-center py-2">Your Transaction</h1>
             <div class="row py-5">
                 <div class="col-md-4">
-                    <div class="single-item1 p-5 text-white">
+                    <div class="single-item1 p-5 text-white mb-3 mb-md-0">
                         <h5>Deposit</h5>
                         <h2 class="fs-1">$ <span id="current-deposit">00</span></h2>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="single-item2 p-5 text-white">
+                    <div class="single-item2 p-5 text-white mb-3 mb-md-0">
                         <h5>Withdraw</h5>
                         <h2 class="fs-1">$00</h2>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="single-item3 p-5 text-white">
+                    <div class="single-item3 p-5 text-white mb-3">
                         <h5>Balance</h5>
                         <h2 class="fs-1">$ <span id="current-balance">1240</span></h2>
                     </div>
@@ -79,7 +79,7 @@
         })
 
     // deposit button event handler
-    
+
         const depositBtn = document.getElementById('deposit-btn');
         depositBtn.addEventListener('click', function(){
             const depositAmunt = document.getElementById('deposit-amount').value;
