@@ -10,11 +10,11 @@
 </head>
 <body>
     <div class="container px-md-5">
-        <div id="login-area" class="py-5 px-5 border mt-5">
-            <h1 class="text-center py-2">Welcome to Pioneer Bank</h1>
+        <div id="login-area" class="py-5 px-4 px-md-5 border mt-5">
+            <h1 class="text-center py-2 bg-success text-white">Welcome to Pioneer Bank</h1>
             <div class="submit-area py-5 px-5 mt-5">
                 <h3>Login</h3>
-                <input class="form-control mb-3 mt-3" placeholder="Email" type="text" name="" id="">
+                <input class="form-control mb-3 mt-3" placeholder="Enter your email" type="email" name="" id="">
                 <input class="form-control mb-3" placeholder="Password" type="password" name="" id="">
                 <button class="btn btn-success" id="login-btn">Enter</button>
             </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="container">
         <div id="transaction-area" class="border my-2 p-4">
-            <h1 class="text-center py-2">Your Transaction</h1>
+            <h1 class="text-center py-2 bg-success text-white">Your Transaction</h1>
             <div class="row py-5">
                 <div class="col-md-4">
                     <div class="single-item1 p-5 text-white mb-3 mb-md-0">
@@ -34,7 +34,7 @@
                 <div class="col-md-4">
                     <div class="single-item2 p-5 text-white mb-3 mb-md-0">
                         <h5>Withdraw</h5>
-                        <h2 class="fs-1">$00</h2>
+                        <h2 class="fs-1">$ <span id="current-withdraw">00</span></h2>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -55,8 +55,8 @@
                 <div class="col-md-6 py-2">
                     <div class="submit-item p-5 border">
                         <h3>Withdraw</h3>
-                        <input class="form-control mb-3" type="text" placeholder="$ Amount you want to withdraw">
-                        <button class="btn btn-success">Withdraw</button>
+                        <input id="withdraw-amount" class="form-control mb-3" type="text" placeholder="$ Amount you want to withdraw">
+                        <button id="withdraw-btn" class="btn btn-success">Withdraw</button>
                     </div>
                 </div>
             </div>
@@ -105,6 +105,34 @@
 
 
         });
+
+
+    // withdraw button event hander
+
+        const withdrawBtn = document.getElementById('withdraw-btn');
+        withdrawBtn.addEventListener('click', function(){
+            const withdrawAmount = document.getElementById('withdraw-amount').value;
+            const withdrawAmountNumber = parseFloat(withdrawAmount);
+            
+
+            const currentWithdraw = document.getElementById('current-withdraw').innerText;
+            const currentWithdrawNumber = parseFloat(currentWithdraw);
+            const totalWithdraw = withdrawAmountNumber + currentWithdrawNumber;
+
+
+            document.getElementById('current-withdraw').innerText = totalWithdraw;
+            document.getElementById('withdraw-amount').value = '';
+
+
+            const currentBalance = document.getElementById('current-balance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance =  currentBalanceNumber - withdrawAmountNumber;
+
+            document.getElementById('current-balance').innerText = totalBalance;
+
+
+            
+        })
         
 </script>
         
